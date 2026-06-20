@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Page</title>
+</head>
+
+<body style="font-family:Arial;background:#f4f4f4;">
+
+<div style="max-width:500px;margin:50px auto;background:white;padding:25px;border-radius:10px;box-shadow:0 0 10px gray;">
+
+<h1 style="text-align:center;color:#d35400;">Place Your Order</h1>
+
+<form>
+
+<label>Customer Name</label><br><br>
+<input type="text" placeholder="Enter your name"
+style="width:100%;padding:10px;"><br><br>
+
+<label>Phone Number</label><br><br>
+<input type="tel" placeholder="Enter phone number"
+style="width:100%;padding:10px;"><br><br>
+
+<label>Delivery Address</label><br><br>
+<textarea rows="4"
+style="width:100%;padding:10px;"
+placeholder="Enter address"></textarea><br><br>
+
+<label>Dish Name</label><br><br>
+<input type="text"
+id="dish"
+readonly
+style="width:100%;padding:10px;"><br><br>
+
+<label>Price</label><br><br>
+<input type="text"
+id="price"
+readonly
+style="width:100%;padding:10px;"><br><br>
+
+<label>Quantity</label><br><br>
+<input type="number"
+value="1"
+min="1"
+style="width:100%;padding:10px;"><br><br>
+
+<button type="submit"
+style="width:100%;background:#d35400;color:white;padding:12px;border:none;font-size:18px;">
+Place Order
+</button>
+
+</form>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("dish").value =
+params.get("dish") || "";
+
+document.getElementById("price").value =
+"₹" + (params.get("price") || "");
+</script>
+
+</body>
+</html>
